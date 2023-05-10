@@ -1,0 +1,17 @@
+<p>Hola {{valor}}</p>
+<input  [(ngModel)]="valor"placeholder="Nombre">
+<br>
+<p>Coloque su edad</p>
+<input type="number" placeholder="Edad" [(ngModel)]="edad">
+<p *ngIf="edad>=23; else menores">Soy mayor de 23</p>
+<!-- [(ngModel)] enlaza el valor del formulario con el del componente -->
+<ng-template #menores>
+  <p>Soy menor de 23</p>
+</ng-template>
+<p>Ingrese sus amigos separados por una ","</p>
+<input type="text"[(ngModel)]="amigos">
+
+<ul>
+   <li *ngFor="let amigo of amigos.split(',') let i=index">Su amigo {{amigo.trim()}} es su amigo numero {{i+1}}</li>
+    <!--utilizo trim para eliminar espacios en blanco antes y despues. split se usa para determinar la forma en que separo cada cadena -->
+</ul>
